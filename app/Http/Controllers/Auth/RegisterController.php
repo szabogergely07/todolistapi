@@ -75,8 +75,8 @@ class RegisterController extends Controller
         $user->email = $request->input('email');
         $user->password = $request->input('password');
 
-        $message->save();
+        $user->save();
 
-        return response()->json($message);
+        return response()->json($user);
     }
 }
