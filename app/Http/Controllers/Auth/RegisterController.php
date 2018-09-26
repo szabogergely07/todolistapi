@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('guest');
+        $this->middleware('guest');
     }
 
     /**
@@ -46,7 +46,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator($data)
+    protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
@@ -62,21 +62,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(Request $request)
+    protected function create(array $data)
     {
-        // return User::create([
-        //     'name' => $request->input('name'),
-        //     'email' => $request->input('email'),
-        //     'password' => Hash::make($request->input('password')),
-        // ]);
+        return User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
 
-        $user = new User;
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
 
-        $user->save();
-
-        return response()->json($user);
     }
 }
