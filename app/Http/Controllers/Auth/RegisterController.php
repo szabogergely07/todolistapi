@@ -64,20 +64,19 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-        return User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-        ]);
+        // return User::create([
+        //     'name' => $request->input('name'),
+        //     'email' => $request->input('email'),
+        //     'password' => Hash::make($request->input('password')),
+        // ]);
 
-        // $user = new User;
-        // $message->title = $request->input('title');
-        // $message->date = $request->input('date');
-        // $message->description = $request->input('description');
-        // $message->category = $request->input('category');
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
 
-        // $message->save();
+        $message->save();
 
-        // return response()->json($message);
+        return response()->json($message);
     }
 }
