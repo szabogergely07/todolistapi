@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -35,10 +36,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $pass = $request->input('password');
          $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = Hash::make($pass);
 
         $user->save();
 
