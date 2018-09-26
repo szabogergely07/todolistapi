@@ -24,3 +24,6 @@ Route::resource('todo', 'MessagesController');
 // Route::post('contact/submit', 'MessagesController@submit');
 
 // Route::post('todosave', 'MessagesController@todoSave');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

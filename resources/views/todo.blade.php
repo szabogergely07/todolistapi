@@ -33,12 +33,12 @@
 <!-- End td 1 -->
       </td>
        <td>
-<input type="text" name="title" class="input_title_desc" />      
+<input id="title" type="text" name="title" class="input_title_desc" />      
 
          <!-- End td 2 -->
       </td>
     <td>
-<input name="date" type="date" class="input_description_title"  id="date_select">
+<input id="date" name="date" type="date" class="input_description_title"  id="date_select">
  
       <!-- End td 3 -->
       </td>
@@ -49,7 +49,7 @@
 <tr>
 
   <td colspan="3">
-  <input type="text" name="description" class="input_description" required />
+  <input type="text" id="description" name="description" class="input_description" required />
   </td>
     </tr>
     <tr>
